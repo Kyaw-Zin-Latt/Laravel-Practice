@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class isMe
 {
@@ -15,6 +16,9 @@ class isMe
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::id() != 101){
+            return abort(404);
+        }
         return $next($request);
     }
 }
