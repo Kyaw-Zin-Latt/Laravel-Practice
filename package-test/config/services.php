@@ -36,4 +36,10 @@ return [
         'redirect' => env('FACEBOOK_CALLBACK_URL'),
     ],
 
+    'google' => [
+        'client_id' => '988344085047-78kmtok7nmkrpa0l1biipthtjinv6dot.apps.googleusercontent.com',
+        'client_secret' => 'r-0Rfmg8i1EeVmqOdon309bn',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
+    ],
+
 ];

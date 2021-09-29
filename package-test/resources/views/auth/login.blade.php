@@ -58,11 +58,11 @@
                                 </button>
 
 
-                                
-                                <a class="btn btn-outline-primary" href="{{ route('fb.redirect') }}">
-                                    Login with Facebook
+
+                                <a class="btn btn-outline-primary" href="{{ route('google.redirect') }}">
+                                    Login with Google
                                 </a>
-                                
+
                             </div>
                         </div>
                     </form>
