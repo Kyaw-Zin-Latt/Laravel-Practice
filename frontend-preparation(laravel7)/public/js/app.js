@@ -37375,13 +37375,16 @@ $(".full-screen-btn").click(function () {
     $(this).html("<i class=\"feather-maximize-2\"></i>");
   }
 });
-var screenHeight = $(window).height();
-var currentMenuHeight = $(".nav-menu .active").offset().top;
 
-if (currentMenuHeight > screenHeight * 0.8) {
-  $(".sidebar").animate({
-    scrollTop: currentMenuHeight - 100
-  }, 1000);
+if ($(".nav-menu .active").offset() != undefined) {
+  var screenHeight = $(window).height();
+  var currentMenuHeight = $(".nav-menu .active").offset().top;
+
+  if (currentMenuHeight > screenHeight * 0.8) {
+    $(".sidebar").animate({
+      scrollTop: currentMenuHeight - 100
+    }, 1000);
+  }
 }
 
 /***/ }),

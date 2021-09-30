@@ -22,6 +22,7 @@
                 </div>
             </div>
         </div>
+        {{ \App\Category::all()->random()->id }}
     </div>
 </div>
 @endsection

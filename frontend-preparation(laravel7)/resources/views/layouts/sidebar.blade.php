@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-4 col-xl-3 vh-100 sidebar">
+<div class="col-12 col-lg-4 col-xl-2 vh-100 sidebar">
     <div class="d-flex justify-content-between align-items-center py-2 nav-brand">
         <img src="{{ asset(\App\Base::$logo) }}" class="w-100" alt="">
         <button class="hide-sidebar-btn btn btn-light d-block d-lg-none">
@@ -23,6 +23,9 @@
 
             <x-menu-title title="Arcticle Manager"></x-menu-title>
             <x-menu-item class="fas fa-layer-group" name="Manage Category" link="{{ route('category.index') }}"></x-menu-item>
+            <x-menu-item class="fas fa-plus-circle" name="Create Article" link="{{ route('article.create') }}"></x-menu-item>
+            <x-menu-item class="fas fa-list" name="Article List" link="{{ route('article.index') }}"></x-menu-item>
+
 
 
             <x-menu-spacer></x-menu-spacer>

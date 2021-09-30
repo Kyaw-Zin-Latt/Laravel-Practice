@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield("title","Admin Dashboard")</title>
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+    <link rel="icon" href="{{ asset("images/logos/mylogo.png") }}">
     @yield("head")
 </head>
 <body>
@@ -21,7 +22,7 @@
             <!--        sidebar start-->
         @include("layouts.sidebar")
         <!--        sidebar end-->
-            <div class="col-12 col-lg-8 col-xl-9 vh-100 py-3 content">
+            <div class="col-12 col-lg-8 col-xl-10 vh-100 py-3 content">
             @include("layouts.nav")
             <!--content Area Start-->
             @yield("content")
