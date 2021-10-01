@@ -10,6 +10,7 @@
             <x-menu-spacer></x-menu-spacer>
 
             <x-menu-item class="fas fa-home" name="Home" link="{{ route('home') }}"></x-menu-item>
+            <x-menu-item class="fas fa-newspaper" name="Go To News" link="{{ route('/') }}"></x-menu-item>
 
             <x-menu-spacer></x-menu-spacer>
 

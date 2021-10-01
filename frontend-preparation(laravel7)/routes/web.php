@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("/");
+Route::get('/', "BlogController@index")->name("/");
+Route::get("/detail/{id}","BlogController@detail")->name("detail");
+Route::get("/category/{id}","BlogController@baseOnCategory")->name("baseOnCategory");
+Route::get("/user/{id}","BlogController@baseOnUser")->name("baseOnUser");
+Route::get("/date/{id}","BlogController@baseOnDate")->name("baseOnDate");
 
 Auth::routes();
+
+Route::view("/about","blog.about")->name("about");
 
 Route::prefix("dashboard")->middleware("auth")->group(function(){
 
