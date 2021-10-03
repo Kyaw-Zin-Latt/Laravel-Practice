@@ -13,12 +13,18 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="{{ isset(Auth::user()->photo) ? asset('storage/profile/'.Auth::user()->photo) : asset('dashboard/img/user-default-photo.jpg') }}" class="w-50 rounded-circle my-3" alt="">
-                        <h3 class="mb-0 font-weight-bold">
+                        <h3 class="font-weight-bold">
                             {{ Auth::user()->name }}
                         </h3>
-                        <small class="text-black-50">
+                        <p class="">
                             {{ Auth::user()->email }}
-                        </small>
+                        </p>
+                        <p class="">
+                            {{ Auth::user()->phone }}
+                        </p>
+                        <p class="">
+                            {{ Auth::user()->address }}
+                        </p>
 
                     </div>
                 </div>

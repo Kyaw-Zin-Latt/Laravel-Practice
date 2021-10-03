@@ -8,4 +8,8 @@ $primary:#775253;
 @import '~bootstrap/scss/bootstrap';
 @import "feather-icons-web/feather.css";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+$bootstrap-primary:$primary;
+$bootstrap-toast-padding-y: 2rem;
+@import "~@sweetalert2/theme-bootstrap-4/bootstrap-4";
 @import "myStyle.css";

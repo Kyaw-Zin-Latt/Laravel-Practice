@@ -40,6 +40,7 @@
     @empty(Auth::user()->phone)
         @include("user-profile.user-info")
     @endempty
+    @include("layouts.toast")
 @endauth
 </body>
 </html>

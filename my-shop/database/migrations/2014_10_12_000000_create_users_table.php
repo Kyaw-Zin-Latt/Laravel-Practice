@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string("phone")->nullable();
             $table->text("address")->nullable();
             $table->string("photo")->nullable();
+            $table->enum("role",["0","1"])->default("1");
+            $table->enum("isBaned",["0","1"])->default("0");
             $table->rememberToken();
             $table->timestamps();
         });

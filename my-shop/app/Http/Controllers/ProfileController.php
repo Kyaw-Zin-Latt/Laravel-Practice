@@ -42,7 +42,7 @@ class ProfileController extends Controller
 
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('login')->with("toast",["title"=>"Login Successfully","icon"=>"success"]);
 
     }
 
@@ -53,7 +53,7 @@ class ProfileController extends Controller
         $user = User::find(Auth::id());
         $user->name = $request->name;
         $user->update();
-        return redirect()->route("profile.edit.name.email");
+        return redirect()->route("profile.edit.name.email")->with("toast",["title"=>"Name Updated","icon"=>"success"]);
     }
 
     public function changeEmail(Request $request){
@@ -63,7 +63,7 @@ class ProfileController extends Controller
         $user = User::find(Auth::id());
         $user->email = $request->email;
         $user->update();
-        return redirect()->route("profile.edit.name.email");
+        return redirect()->route("profile.edit.name.email")->with("toast",["title"=>"Email Updated","icon"=>"success"]);
     }
 
     public function changePhoto(Request $request){
@@ -81,20 +81,21 @@ class ProfileController extends Controller
         $user->photo = $newName;
         $user->update();
 
-        return redirect()->route("profile.edit.photo");
+        return redirect()->route("profile.edit.photo")->with("toast",["title"=>"Photo Updated","icon"=>"success"]);
 
     }
 
     public function updateInfo(Request $request) {
         $request->validate([
-            
+            "phone" => "required|min:11|numeric",
+            "address" => "required|min:5",
         ]);
         $user = User::find(Auth::id());
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->save();
 
-        return redirect()->back();
+        return redirect()->route("profile.edit.name.email")->with("toast",["title"=>"Information Updated Successfully","icon"=>"success"]);
     }
 
 }

@@ -40,7 +40,8 @@
     </div>
 </div>
 <script>
-    setInterval(function () {
-        $("#userInfoModal").modal("show");
-    },2000);
+    // setInterval(function () {
+    //     $("#userInfoModal").modal("show");
+    // },2000);
+    $("#userInfoModal").modal("show");
 </script>
