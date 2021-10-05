@@ -19,6 +19,7 @@ class ArticleController extends Controller
             $search = request()->search;
             $q->orwhere("title","like","%$search%")->orwhere("description","like","%$search%");
         })->with(["user","category"])->orderBy("id","desc")->paginate(5);
+
         return view("article.index",compact('articles'));
     }
 

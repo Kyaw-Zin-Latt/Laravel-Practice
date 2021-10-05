@@ -1,0 +1,11 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Padauk:wght@400;700&display=swap');
+$font-family-sans-serif: 'Montserrat Alternates', sans-serif, 'Padauk', sans-serif;
+
+
+$primary:#775253;
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import "feather-icons-web/feather.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "myStyle.css";
