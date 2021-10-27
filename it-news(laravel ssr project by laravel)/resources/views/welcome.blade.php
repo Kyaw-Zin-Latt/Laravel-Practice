@@ -11,7 +11,7 @@
                     </a>
 
                     <div class="small post-category">
-                        <a href="{{ route("baseOnCategory",$article->category->id) }}" rel="category tag">{{ $article->category->title }}</a>
+                        <a href="{{ route("baseOnCategory",$article->category_slug) }}" rel="category tag">{{ $article->category->title }}</a>
                     </div>
 
 
@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-                        <a href="{{ route("detail",$article->id) }}" class="btn btn-outline-primary rounded-pill px-3">Read More</a>
+                        <a href="{{ route("detail",$article->slug) }}" class="btn btn-outline-primary rounded-pill px-3">Read More</a>
                     </div>
                 </div>
             </div>

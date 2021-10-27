@@ -45,7 +45,7 @@
 
                 <div class="nav d-flex justify-content-between p-3">
                     @if($prevArticle)
-                        <a href="{{ route("detail",$prevArticle->id) }}"
+                        <a href="{{ route("detail",$prevArticle->slug) }}"
                            class="btn btn-outline-primary page-mover rounded-circle">
                             <i class="feather-chevron-left"></i>
                         </a>
@@ -57,7 +57,7 @@
                     </a>
 
                     @if($nextArticle)
-                        <a href="{{ route("detail",$nextArticle->id) }}"
+                        <a href="{{ route("detail",$nextArticle->slug) }}"
                            class="btn btn-outline-primary page-mover rounded-circle">
                             <i class="feather-chevron-right"></i>
                         </a>

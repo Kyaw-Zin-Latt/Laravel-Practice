@@ -17,16 +17,17 @@ class BlogController extends Controller
         return view("welcome",compact('articles'));
     }
 
-    public function detail($id) {
-        $article = Article::find($id);
+    public function detail($slug) {
+
+        $article = Article::where("slug",$slug)->first();
         return view("blog.detail",compact("article"));
     }
 
-    public function baseOnCategory($id) {
+    public function baseOnCategory($slug) {
         $articles = Article::when(isset(request()->search),function ($q){
             $search = request()->search;
             $q->orwhere("title","like","%$search%")->orwhere("description","like","%$search%");
-        })->where("category_id","=",$id)->with(["user","category"])->orderBy("id","desc")->paginate(5);
+        })->where("category_slug","=",$slug)->with(["user","category"])->orderBy("id","desc")->paginate(5);
         return view("welcome",compact('articles'));
     }
 

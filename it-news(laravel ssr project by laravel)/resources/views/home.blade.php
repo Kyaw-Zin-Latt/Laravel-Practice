@@ -5,20 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-
-                <div class="card-header">
-                    <i class="fas fa-home text-primary"></i>
-                    {{ __('Dashboard') }}
-                </div>
-
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    {{ Str::slug("min ga lar par") }}
+                    @php
 
-                    {{ __('You are logged in!') }}
+                    $category = \App\Category::all();
+                    $article = \App\Article::all();
+                    foreach ($article as $a){
+                        foreach ($category as $c){
+                            if ($a->category_id == $c->id){
+                                $result = $c->slug;
+                            echo $result;
+                            }
+                        }
+                    }
+
+                    @endphp
                 </div>
             </div>
         </div>
