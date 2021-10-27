@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -15,6 +17,33 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        /**
+         * To make slug start
+         */
+
+//        $articles = Article::all();
+//        $categories = Category::all();
+
+//        foreach ($articles as $a){
+//            $a->slug = Str::slug($a->title);
+//            $a->update();
+//        }
+
+
+//        foreach ($articles as $a){
+//            foreach ($categories as $c){
+//                if ($a->category_id == $c->id){
+//                    $a->category_slug = $c->slug;
+//                    $a->update();
+//                }
+//            }
+//        }
+
+
+        /**
+         * To make slug start
+         */
+
         $articles = Article::when(isset(request()->search),function ($q){
             $search = request()->search;
             $q->orwhere("title","like","%$search%")->orwhere("description","like","%$search%");
@@ -49,6 +78,7 @@ class ArticleController extends Controller
 
         $article = new Article();
         $article->title = $request->title;
+        $article->slug = Str::slug($request->title);
         $article->description = $request->description;
         $article->user_id = Auth::id();
         $article->category_id = $request->category;

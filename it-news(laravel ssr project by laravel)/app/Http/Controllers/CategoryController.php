@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -15,6 +16,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
+//        $categories = Category::all();
+//        foreach ($categories as $category){
+//            $category->slug = Str::slug($category->title);
+//            $category->update();
+//        }
+
         return view("category.index");
     }
 
