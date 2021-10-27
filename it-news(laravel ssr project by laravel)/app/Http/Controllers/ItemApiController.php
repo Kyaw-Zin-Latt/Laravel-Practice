@@ -9,8 +9,21 @@ use Illuminate\Support\Facades\Validator;
 class ItemApiController extends Controller
 {
 
-    public function index() {
-        $articles = Article::all();
+    public function index($search = "") {
+        $articles = Article::when(isset($search),function ($q) use ($search) {
+//            $search = request()->search;
+            $q->orwhere("title","like","%$search%")->orwhere("description","like","%$search%");
+        })->with(["user","category"])->orderBy("id","desc")->paginate(5);
+
+        return response($articles,200);
+    }
+
+    public function search($search) {
+        $articles = Article::when(isset($search),function ($q) use ($search) {
+//            $search = request()->search;
+            $q->orwhere("title","like","%$search%")->orwhere("description","like","%$search%");
+        })->with(["user","category"])->orderBy("id","desc")->paginate(5);
+
         return response($articles,200);
     }
 
@@ -72,5 +85,14 @@ class ItemApiController extends Controller
         return response($article,200);
 
     }
+
+    public function baseOnCategory($id) {
+        $articles = Article::when(isset(request()->search),function ($q){
+            $search = request()->search;
+            $q->orwhere("title","like","%$search%")->orwhere("description","like","%$search%");
+        })->where("category_id","=",$id)->with(["user","category"])->orderBy("id","desc")->paginate(5);
+        return response($articles,200);
+    }
+
 
 }

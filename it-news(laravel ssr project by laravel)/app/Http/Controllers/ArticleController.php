@@ -115,4 +115,6 @@ class ArticleController extends Controller
         return  redirect()->back()->with("message","<b>$article->title</b> is deleted");
 
     }
+
+
 }
