@@ -77,8 +77,10 @@ class ArticleController extends Controller
         ]);
 
         $article = new Article();
+        if ($article->title != $request->title){
+            $article->slug = Str::slug($request->title);
+        }
         $article->title = $request->title;
-        $article->slug = Str::slug($request->title);
         $article->description = $request->description;
         $article->user_id = Auth::id();
         $article->category_id = $request->category;
@@ -124,6 +126,9 @@ class ArticleController extends Controller
             "description" => "required|min:20",
         ]);
 
+        if ($article->title != $request->title){
+            $article->slug = Str::slug($request->title);
+        }
         $article->title = $request->title;
         $article->description = $request->description;
         $article->category_id = $request->category;
