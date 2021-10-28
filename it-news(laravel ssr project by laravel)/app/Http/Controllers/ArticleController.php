@@ -25,9 +25,12 @@ class ArticleController extends Controller
 //        $categories = Category::all();
 
 //        foreach ($articles as $a){
-//            $a->slug = Str::slug($a->title);
+//            $a->excerpt = Str::words($a->description,60);
 //            $a->update();
 //        }
+
+
+
 
 
 //        foreach ($articles as $a){
@@ -82,6 +85,7 @@ class ArticleController extends Controller
         }
         $article->title = $request->title;
         $article->description = $request->description;
+        $article->excerpt = Str::words($article->description,60);
         $article->user_id = Auth::id();
         $article->category_id = $request->category;
         $article->save();
@@ -131,6 +135,7 @@ class ArticleController extends Controller
         }
         $article->title = $request->title;
         $article->description = $request->description;
+        $article->excerpt = Str::words($article->description,60);
         $article->category_id = $request->category;
         $article->update();
 
