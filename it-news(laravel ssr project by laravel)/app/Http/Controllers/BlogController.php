@@ -20,6 +20,9 @@ class BlogController extends Controller
     public function detail($slug) {
 
         $article = Article::where("slug",$slug)->first();
+        if (empty($article)){
+            return abort("404");
+        }
         return view("blog.detail",compact("article"));
     }
 
