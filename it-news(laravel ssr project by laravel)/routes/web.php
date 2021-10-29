@@ -19,7 +19,7 @@ Route::get("/category/{slug}","BlogController@baseOnCategory")->name("baseOnCate
 Route::get("/user/{id}","BlogController@baseOnUser")->name("baseOnUser");
 Route::get("/date/{id}","BlogController@baseOnDate")->name("baseOnDate");
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::view("/about","blog.about")->name("about");
 
