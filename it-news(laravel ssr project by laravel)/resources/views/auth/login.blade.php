@@ -35,7 +35,12 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <div class="d-flex justify-content-between">
+                                        <label>Password</label>
+                                        <a href="{{ route("password.request") }}">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
                                     <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                     @error('password')
